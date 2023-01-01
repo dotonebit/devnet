@@ -1,0 +1,14 @@
+Package Management
+==================
+Packages are a convenient method to deliver software.
+Package tool maintains a database of installed applications.
+Package management is the systematic means of installing, upgrading, configuring, and removing software on a computer’s operating system.
+
+Debian Family
+-------------
+- dpkg: command to install a local .deb package
+- apt & apt-get: commands to download and install packages
+- .deb: file extension
+
+The 'apt' and 'apt-get' commands are used to automatically download a package from a remote (internet-based) repository.
+The 'dpkg' command can be used to install packages locally.
