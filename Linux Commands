@@ -61,3 +61,52 @@ Debian Family
 
 The 'apt' and 'apt-get' commands are used to automatically download a package from a remote (internet-based) repository.
 The 'dpkg' command can be used to install packages locally.
+
+
+Linux Processes
+===============
+top: displays real-time processor utilization
+htop: displays real-time processor utilization in an easier to read format
+ps: displays the current user’s active processes
+ps aux: displays an exhaustive list of all processes by all users
+kill: ends a running process
+
+
+Basic Linux Networking Commands
+===============================
+ping: test connectivity between two nodes (by default, ping will run continuously until manually stopped)
+
+traceroute: displays the Layer 3 hops taken to reach a destination
+
+ifconfig [interface]: displays interface information of all interfaces (or a specific interface)
+
+ip link / ip addr list: list all the interfaces on the local system
+
+ip addr: assign or delete an IP address to a specific interface (not persistent through a system restart)
+Example: sudo ip addr add 192.168.1.50/24 dev eth1 
+
+ip route: add a route to the local system (not persistent through a system restart)
+Example: sudo ip route add 172.16.10.0/24 via 192.168.200.50 dev eth1
+
+ifup / ifdown: used to enable or disable a specific interface
+
+netstat: display local computer’s connection information, routing table information
+netstat -r: displays local routing table (same as the 'route' command)
+netstat -i: displays interface statistics
+
+dig: used to display DNS information such as A Records, MX Records, and CNAMES
+
+host: used to resolve a hostname to an IP address or vice versa and learn DNS information such as MX Records, Name Servers, CNAME, etc.
+
+ssh: used to securely log in to remote systems
+By default, your Linux username is used as the username to log in to the remote host.
+You can pass the username using 'ssh username@device' or use the –l flag to specify the login username.
+You can use the -p flag to specify the port number if the system isn’t using the default port of 22.
+
+Example: ssh admin@192.168.1.1 -p 2222 OR ssh –l john 192.168.1.1
+
+ip route list: primary method for viewing and modifying the routing table
+route: another command to view and modify the routing table
+
+arp: view local system ARP table or set a static ARP entry
+Example: arp -s LOCAL_MACHINE 50:51:52:53:54:55
