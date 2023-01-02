@@ -1,3 +1,52 @@
+Using the Bash (the Bourne Again Shell)
+=======================================
+
+touch: to create an empty file
+mkdir: make a new directory
+mkdir -p: make all required sub-directories in the path
+rm: remove a file
+rm -r: remove an entire directory and its contents
+rmdir: remove an empty directory
+rm -rf: remove a directory and contents including write-protected files
+cp: copy a file
+mv: move or rename a file
+sudo: run a command as root user
+su: change to the root user
+
+
+File Permissions
+================
+
+Permissions are based on two factors:
+- permissions assigned to a specific user and group (owner/user, group, other)
+- permissions assigned to a specific action (read, write, execute)
+
+- = file
+d = directory
+rwx = read, write, execute
+
+Code structure: file/directory (1) - user (3) - group (3) - other (3)
+
+Example: drwxrwxrwx is a directory, where user, group and other have read, write and execute permissions
+
+Example: -rw-rw-r-- is a file, where user and group have read and write permissions, other can only read
+
+chmod: update and change file permissions
+
+chmod [u, g, o] (+/- [r, w, x]) for each action
+
+Example: chmod u+x script.py says that the user of the file should be able to eXecute the script
+
+Every Bash shell script starts with a shebang (#!). 
+The shebang is used in scripts to signify an interpreter for execution in the UNIX-like operating system. 
+After the shebang comes the absolute path to the Bash interpreter (/bin/bash). 
+This makes sure that Bash will be used to interpret the script even when executed under another shell.
+
+Example: 
+#!/bin/bash
+echo Hello World
+
+
 Package Management
 ==================
 Packages are a convenient method to deliver software.
