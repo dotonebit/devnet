@@ -110,3 +110,62 @@ route: another command to view and modify the routing table
 
 arp: view local system ARP table or set a static ARP entry
 Example: arp -s LOCAL_MACHINE 50:51:52:53:54:55
+
+
+Persistent Network Configuration
+================================
+Persistent interface route information is stored in: /etc/network/interfaces
+
+To modify the network configuration file, you need to open it in a text editor.
+Example: nano /etc/network/interfaces
+
+Static / DHCP: iface eth0 inet static / iface eth0 inet dhcp
+
+On newer Debian distributions, the file containing interface configuration information is located in /etc/netplan/*.yaml and can be modified with any text editor.
+The Netplan configuration file name can differ based on the Linux installation type. 
+Common file types include 01-netcfg.yaml, 01-networkmaanger-all.yaml, and 50-cloud-init.yaml.
+
+Example: more /etc/netplan/01-network-manager-all.yaml
+
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    ens192:
+     dhcp4: no
+     addresses: [172.21.55.10/24]
+     gateway4: 172.21.55.1
+     nameservers:
+       addresses: [100.65.0.51,100.65.0.52]
+
+After modifying Netplan files, you must use the 'sudo netplan apply' command to apply the configuration.
+
+
+Red Hat
+-------
+On Red Hat distributions, the file containing interface configuration information is located in /etc/sysconfig/network-scripts/ifcfg-interface-name
+Example: cat /etc/sysconfig/network-scripts/ifcfg-ens33
+
+DEVICE=ens33 
+BOOTPROTO=none 
+ONBOOT=yes 
+PREFIX=24 
+IPADDR=172.21.1.55 
+GATEWAY=172.21.1.1
+
+
+Updating DNS
+------------
+DNS information is stored in the resolv.conf file.
+The absolute path is /etc/resolv.conf
+Dynamically constructed from files located in: /etc/resolvconf/resolv.conf.d/
+
+Example: 
+nameserver 127.0.1.1 nameserver 10.8.8.8
+
+While it is possible to edit /etc/resolv.conf manually, it is not recommended as your changed will be overridden when networking is restarted or the system reboots. 
+To regenerate resolv.conf, you can restart networking ('sudo service networking restart') or use the 'sudo resolvconf -u' command.
+
+After changing an IP address, subnet mask, gateway, adding additional NIC or similar network tasks, you must restart the networking service in order for your change to take effect. 
+There are several commands to accomplish it, but the easiest is to use 'sudo systemctl restart networking', which restarts the service for the entire system.
+
