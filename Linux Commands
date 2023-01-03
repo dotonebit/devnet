@@ -123,7 +123,7 @@ Static / DHCP: iface eth0 inet static / iface eth0 inet dhcp
 
 On newer Debian distributions, the file containing interface configuration information is located in /etc/netplan/*.yaml and can be modified with any text editor.
 The Netplan configuration file name can differ based on the Linux installation type. 
-Common file types include 01-netcfg.yaml, 01-networkmaanger-all.yaml, and 50-cloud-init.yaml.
+Common file types include 01-netcfg.yaml, 01-networkmanager-all.yaml, and 50-cloud-init.yaml.
 
 Example: more /etc/netplan/01-network-manager-all.yaml
 
