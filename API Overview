@@ -1,0 +1,7 @@
+The core components of the complete device API include the following:
+- Data models: Data models define the syntax and semantics, including the constraints of working with the API.
+- Transport: Model-driven APIs support several transport methods, including SSH, TLS, HTTP and HTTPS.
+- Encoding: Model-driven APIs support the choice of encoding, including XML and JSON, but also custom encodings such as Google protocol buffers.
+- Protocols: Model-driven APIs also support multiple options for protocol, with the three core protocols being NETCONF, RESTCONF, and gRPC. 
+  Remember, they are the core protocols that work with model-driven APIs. REST is not explicitly listed because when REST is used in a modeled device, it becomes RESTCONF.
+  
