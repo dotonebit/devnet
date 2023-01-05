@@ -5,3 +5,45 @@ The core components of the complete device API include the following:
 - Protocols: Model-driven APIs also support multiple options for protocol, with the three core protocols being NETCONF, RESTCONF, and gRPC. 
   Remember, they are the core protocols that work with model-driven APIs. REST is not explicitly listed because when REST is used in a modeled device, it becomes RESTCONF.
   
+  
+HTTP-Based APIs
+---------------
+
+(client) HTTP GET ----> (web server)
+(client) <----- HTML (web server)
+
+(client) HTTP GET ----> (router)
+(client) JSON and XML <----- (router)
+
+When using REST APIs, you still have a client (various options including web browser plug-ins), 
+which performs HTTP operations (for example, GET) to a network device running a web server. 
+The network device understands the request based on the URL (and body) and 
+returns JSON- or XML-encoded objects so that your client can properly consume them.
+
+REST commonly uses HTTP methods such as GET, POST, PUT, PATCH, and DELETE.
+
+To make a REST API call, you need the following:
+1. HTTP: The HTTP method (or verb) is required.
+2. URL: The full URL is needed to manage a given resource.
+3. Body: The body is needed to make certain changes (optional).
+4. Headers: Two common headers that HTTP APIs use are Content-Type and Accept. These headers are how the server knows what to expect from your HTTP and what to send back. For example, do you want XML or JSON? Are you sending XML or JSON?
+5. Authentication: Basic authentication (username:password) or tokens are popular methods of authentication using REST APIs.
+
+
+HTTP Methods
+------------
+GET: GET is used to read or retrieve information from a resource that returns a representation of the data in JSON or XML.
+POST: POST creates new resources.
+PUT: PUT is normally used to update or replace a current resource and involves sending a request with the updated representation of the original resource.
+PATCH: PATCH is similar in some ways to PUT because PATCH modifies the capabilities of a resource. 
+The difference between PUT and PATCH is that PATCH sends a request containing only the changes to the resource and not a completely updated resource.
+DELETE: DELETE simply deletes a resource that a Uniform Resource Identifier (URI) identifies.
+
+When an HTTP method is used, a certain response code is returned depending on the outcome.
+
+Examples of response codes include the following:
+1xx: Informational
+2xx: Success
+3xx: Redirection
+4xx: Client Error
+5xx: Server Error
