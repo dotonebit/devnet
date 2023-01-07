@@ -47,3 +47,40 @@ Examples of response codes include the following:
 3xx: Redirection
 4xx: Client Error
 5xx: Server Error
+
+
+RESTful APIs vs. Non-RESTful APIs
+---------------------------------
+REST = REpresentational State Transfer
+
+There are six design constraints to which an API must conform to be considered a REST API.
+Three of the constraints help in understanding REST within the network device API context:
+- Client/server
+- Stateless
+- Uniform interface
+
+The separation of the client and server resources permits portability and changeability of client applications without changing the server components.
+Clients who use stateless forms of communication must send all the data required for the server to understand and perform the requested operation in a single request.
+Individual resources within an API call are identified in an HTTP request message. For example, in RESTful HTTP-based systems, the URL used will reference a particular resource. 
+In the context of networking, the resource maps to a network device construct such as 
+a hostname, interface, routing protocol configuration, or another resource that exists on the device.
+
+is not necessary, it is common for RESTful APIs to use HTTP as their transport protocol. 
+Technically, it is possible to implement REST with non-HTTP transport protocols, but most modern network APIs use HTTP for transport.
+Understanding HTTP basics helps you understand RESTful network APIs. 
+
+RESTCONF is an example of RESTful API implementation on the Cisco IOS XE Software platform. 
+RESTCONF is a robust API that uses XML or JSON encoded data to represent data that YANG data models define.
+
+In the context of working with a network device and also depending on the device, 
+you would GET and retrieve configuration data, and when making changes, you would POST to make configuration changes.
+
+Using certain HTTP verbs, REST supports the create, read, update, and delete (CRUD) operations. 
+CRUD refers to the four major functions that are implemented in database applications.
+These operations are used with the URL and payload.
+
+It is important to understand that not all APIs that use HTTP for transport are considered RESTful. 
+When an API does not conform to RESTful definitions, it is considered non-RESTful, regardless of the transport protocol.
+APIs that do not implement REST principles are called non-RESTful APIs.
+In the networking industry, non-RESTful APIs are most commonly seen as APIs that implement CLI commands, 
+which means that the API sends a command to the device instead of sending structured data.
