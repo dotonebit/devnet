@@ -1,2 +1,2 @@
 # devnet
-This is a repository for DevNet projects.
+This is a repository for DevNet projects and notes.
