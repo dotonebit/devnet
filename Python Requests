@@ -34,4 +34,12 @@ The syntax components are explained as follows:
   - verify: This argument forces verification of the Secure Sockets Layer (SSL) certificate when it is set to True, and ignores it when set to False. 
     Use the False option only in a development environment.
     
-    
+ 
+ HTTP Authentication
+ -------------------
+ There are three common methods of authentication against an HTTP API server in network devices:
+ - Basic: a Base64 encoder encodes username and password values
+ - Token-based: the API server generates tokens (you can think of them as unique IDs) upon request and that token must accompany all future API requests
+ - Session-based: the API server generates a session cookie, which holds information necessary to make future API requests
+ 
+ 
